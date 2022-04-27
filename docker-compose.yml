@@ -1,0 +1,42 @@
+version: '2.2'
+
+services:
+  #Database Image (postgres)
+  postgres:
+    container_name: bipg_container
+    build: ./postgres
+    restart: always
+    environment:
+      POSTGRES_USER: shoc
+      POSTGRES_PASSWORD: JustKeepSwimming
+      POSTGRES_DB: test_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./postgres/data:/var/lib/postgresql/data
+
+  #Image of PGAdmin (web-based admin tool for postgres database)
+  pgadmin:
+    container_name: bipg_admin
+    image: dpage/pgadmin4
+    restart: always
+    environment:
+      PGADMIN_DEFAULT_EMAIL: shoc@shoc.us
+      PGADMIN_DEFAULT_PASSWORD: JustKeepSwimming
+    links:
+      - postgres
+    ports:
+      - "3031:80"
+
+  #apache/Superset container
+  superset:
+    container_name: bi_superset
+#    build: ./superset
+    image: apache/superset
+    ports:
+      - 3000:8088
+    links:
+      - postgres
+#    volumes:
+#      - ./superset/config:/opt/superset
+

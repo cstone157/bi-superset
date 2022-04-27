@@ -1,0 +1,97 @@
+databases:
+  - database_name: Postgres-Parametric-Data
+    sqlalchemy_uri: postgresql+psycopg2://shoc:XXXXXXXXXX@postgres:5432/parametric
+    cache_timeout: null
+    expose_in_sqllab: true
+    allow_run_async: false
+    allow_ctas: false
+    allow_cvas: false
+    allow_csv_upload: false
+    tables: []
+  - database_name: Postgres-Sample-Data
+    sqlalchemy_uri: postgresql+psycopg2://shoc:XXXXXXXXXX@postgres:5432/sample_data
+    cache_timeout: null
+    expose_in_sqllab: true
+    allow_run_async: false
+    allow_ctas: false
+    allow_cvas: false
+    allow_csv_upload: false
+    tables: 
+    - table_name: t_oil_date_fixed
+      main_dttm_col: date
+      description: null
+      default_endpoint: null
+      offset: 0
+      cache_timeout: null
+      schema: public
+      sql: null
+      params: null
+      template_params: null
+      filter_select_enabled: false
+      fetch_values_predicate: null
+      extra: null
+      metrics:
+      - metric_name: count
+        verbose_name: COUNT(*)
+        metric_type: count
+        expression: COUNT(*)
+        description: null
+        d3format: null
+        extra: null
+        warning_text: null
+      columns:
+      - column_name: date
+        verbose_name: null
+        is_dttm: true
+        is_active: true
+        type: DATE
+        groupby: true
+        filterable: true
+        expression: null
+        description: null
+        python_date_format: null
+        extra: null
+      - column_name: production
+        verbose_name: null
+        is_dttm: false
+        is_active: true
+        type: INTEGER
+        groupby: true
+        filterable: true
+        expression: null
+        description: null
+        python_date_format: null
+        extra: null
+      - column_name: consumption
+        verbose_name: null
+        is_dttm: false
+        is_active: true
+        type: INTEGER
+        groupby: true
+        filterable: true
+        expression: null
+        description: null
+        python_date_format: null
+        extra: null
+      - column_name: country
+        verbose_name: null
+        is_dttm: false
+        is_active: true
+        type: TEXT
+        groupby: true
+        filterable: true
+        expression: null
+        description: null
+        python_date_format: null
+        extra: null
+      - column_name: region
+        verbose_name: null
+        is_dttm: false
+        is_active: true
+        type: TEXT
+        groupby: true
+        filterable: true
+        expression: null
+        description: null
+        python_date_format: null
+        extra: null
